@@ -38,13 +38,12 @@ class Aine_Text_UniDecode
     protected static $_tables = array();
     
     /**
-     * Decode an unicode value.
+     * Decode an utf-8 encoded unicode string to ASCII.
      * 
      * @param  string $string
-     * @param  string $charset
      * @return string
      */
-    public function decode($string, $charset = 'utf-8')
+    public function decode($string)
     {
         $return = '';
 
