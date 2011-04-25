@@ -84,12 +84,23 @@ class Aine_Text_Slugifier
     
     /**
      * Set the uni decoder.
-     * 
+     *
      * @param  Aine_Text_UniDecode $decoder
      * @return void
      */
     public function setUniDecoder(Aine_Text_UniDecode $decoder)
     {
         $this->_uniDecoder = $decoder;
+    }
+
+    /**
+     * Set the default uni decoder.
+     *
+     * @param  Aine_Text_UniDecode $decoder
+     * @return void
+     */
+    public static function setDefaultUniDecoder(Aine_Text_UniDecode $decoder)
+    {
+        self::$_defaultUniDecoder = $decoder;
     }
 }

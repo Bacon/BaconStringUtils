@@ -1,6 +1,6 @@
 Personal collection of reusable classes. The word "Aine" is finnish for
-"stuff". Everything is licensed under the New BSD license (see LICENSE.txt).
-The collection currently contains the following components:
+"substance". Everything is licensed under the New BSD license (see
+LICENSE.txt). The collection currently contains the following components:
 
 
 Aine_Text_Slugifier: 
