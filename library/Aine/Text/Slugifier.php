@@ -57,6 +57,7 @@ class Aine_Text_Slugifier
     {
         $string = $this->getUniDecoder()->decode($string);
         $string = strtolower($string);
+        $string = str_replace("'", '', $string);
         $string = preg_replace('([^a-zA-Z0-9_-]+)', '-', $string);
         $string = preg_replace('(-{2,})', '-', $string);
         $string = trim($string, '-');
