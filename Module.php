@@ -15,6 +15,9 @@
  * @license    New BSD License
  */
 
+/**
+ * @namespace
+ */
 namespace Bacon;
 
 use Zend\Module\Manager,
