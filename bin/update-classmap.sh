@@ -1,4 +1,23 @@
-<?php
+#!/bin/bash
+
+if [ $# -ne 1 ]
+then
+  echo "Usage: `basename $0` path/to/classmap_generator.php"
+  exit 65
+fi
+
+if [ ! -f $1 ]
+then
+  echo "Classmap generator not found"
+  exit 65
+fi
+
+DIR="$( cd -P "$( dirname "$0" )" && pwd )"
+
+php "$1" -l "$DIR/../src" -o "$DIR/../autoload_classmap.php" -w
+
+CLASSMAP="$(cat $DIR/../autoload_classmap.php | grep -v '<?php')"
+HEADER='<?php
 /**
  * Bacon.
  *
@@ -15,7 +34,6 @@
  * @license    New BSD License
  */
 
-return array (
-  'Bacon\Text\Slugifier' => __DIR__ . '/src/Bacon/Text/Slugifier.php',
-  'Bacon\Text\UniDecode' => __DIR__ . '/src/Bacon/Text/UniDecode.php',
-);
+'
+
+echo "${HEADER}${CLASSMAP}" > "$DIR/../autoload_classmap.php"
