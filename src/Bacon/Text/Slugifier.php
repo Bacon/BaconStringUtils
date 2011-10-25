@@ -57,7 +57,7 @@ class Slugifier
      */
     public function slugify($string)
     {
-        $string = $this->getUniDecoder()->decode($string);
+        $string = $this->uniDecoder()->decode($string);
         $string = strtolower($string);
         $string = str_replace("'", '', $string);
         $string = preg_replace('([^a-zA-Z0-9_-]+)', '-', $string);
