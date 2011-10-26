@@ -20,9 +20,9 @@
 /**
  * @namespace
  */
-namespace Bacon\Text;
+namespace Bacon\Text\Slugifier;
 
-use Bacon\Text\UniDecode;
+use Bacon\Text\UniDecode\UniDecode;
 
 /**
  * Slugifier.

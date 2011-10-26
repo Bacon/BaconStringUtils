@@ -25,6 +25,13 @@ define('TESTS_PATH', __DIR__);
 // Define filters for clover report
 $filter = PHP_CodeCoverage_Filter::getInstance();
 $filter->addDirectoryToBlacklist(TESTS_PATH);
+$filter->addDirectoryToBlacklist(BASE_PATH . '/bin');
+$filter->addFilesToBlacklist(array(
+    BASE_PATH . '/Module.php',
+    BASE_PATH . '/autoload_classmap.php',
+    BASE_PATH . '/autoload_function.php',
+    BASE_PATH . '/autoload_register.php',
+));
 $filter->addDirectoryToWhitelist(BASE_PATH . '/library', '.php');
 
 // Load autoloader

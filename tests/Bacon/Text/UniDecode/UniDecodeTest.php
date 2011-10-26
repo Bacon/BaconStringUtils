@@ -20,10 +20,10 @@
 /**
  * @namespace
  */
-namespace BaconTest\Text;
+namespace BaconTest\Text\UniDecode;
 
 use PHPUnit_Framework_TestCase as TestCase,
-    Bacon\Text\UniDecode;
+    Bacon\Text\UniDecode\UniDecode;
 
 /**
  * @category   Bacon

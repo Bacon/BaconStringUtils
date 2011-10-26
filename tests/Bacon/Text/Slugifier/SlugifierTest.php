@@ -20,10 +20,10 @@
 /**
  * @namespace
  */
-namespace BaconTest\Text;
+namespace BaconTest\Text\Slugifier;
 
 use PHPUnit_Framework_TestCase as TestCase,
-    Bacon\Text\Slugifier;
+    Bacon\Text\Slugifier\Slugifier;
 
 /**
  * @category   Bacon

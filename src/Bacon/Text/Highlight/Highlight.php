@@ -20,7 +20,7 @@
 /**
  * @namespace
  */
-namespace Bacon\Text;
+namespace Bacon\Text\Highlight;
 
 /**
  * Source code highlighter.

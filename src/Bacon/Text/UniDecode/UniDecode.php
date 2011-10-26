@@ -20,7 +20,7 @@
 /**
  * @namespace
  */
-namespace Bacon\Text;
+namespace Bacon\Text\UniDecode;
 
 /**
  * Unicode to ASCII decoder.
@@ -70,7 +70,7 @@ class UniDecode
             $position = $codepoint % 256; // Last two hex digits
 
             if (!isset(self::$tables[$section])) {
-                self::$tables[$section] = @include sprintf('%s/UniDecode/x%03x.php', __DIR__, $section);
+                self::$tables[$section] = @include sprintf('%s/tables/x%03x.php', __DIR__, $section);
             }
 
             if (isset(self::$tables[$section][$position])) {
