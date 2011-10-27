@@ -20,10 +20,10 @@
 /**
  * @namespace
  */
-namespace Bacon\Text\Highlight;
+namespace Bacon\Text\Highlight\Parser;
 
 /**
- * Source code highlighter.
+ * Parser states.
  * 
  * @category   Bacon
  * @package    Bacon_Text
@@ -31,7 +31,26 @@ namespace Bacon\Text\Highlight;
  * @copyright  Copyright (c) 2011 Ben Scholzen <mail@dasprids.de>
  * @license    New BSD License
  */
-class Highlight
+class States
 {
+    const STANDARD         = 0;
+    const STRING           = 1;
+    const NUMBER           = 2;
+    const SL_COMMENT       = 3;
+    const ML_COMMENT       = 4;
+    const ESC_CHAR         = 5;
+    const DIRECTIVE        = 6;
+    const DIRECTIVE_STRING = 7;
+    const LINENUMBER       = 8;
+    const SYMBOL           = 9;
+    const KEYWORD          = 10;
     
+    const IDENTIFIER_BEGIN    = 30;
+    const IDENTIFIER_END      = 31;
+    const EMBEDDED_CODE_BEGIN = 32;
+    const EMBEDDED_CODE_END   = 33;
+    
+    const _EOL = 90;
+    const _EOF = 91;
+    const _WS  = 92;
 }
