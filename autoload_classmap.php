@@ -16,7 +16,10 @@
  */
 
 return array (
-  'Bacon\Text\Highlight' => __DIR__ . '/src/Bacon/Text/Highlight/Highlight.php',
+  'Bacon\Text\Highlight\Parser\Parser' => __DIR__ . '/src/Bacon/Text/Highlight/Parser/Parser.php',
+  'Bacon\Text\Highlight\Parser\Syntax' => __DIR__ . '/src/Bacon/Text/Highlight/Parser/Syntax.php',
+  'Bacon\Text\Highlight\Parser\States' => __DIR__ . '/src/Bacon/Text/Highlight/Parser/States.php',
+  'Bacon\Text\Highlight\Generator\Generator' => __DIR__ . '/src/Bacon/Text/Highlight/Generator/Generator.php',
   'Bacon\Text\UniDecode\UniDecode' => __DIR__ . '/src/Bacon/Text/UniDecode/UniDecode.php',
   'Bacon\Text\Slugifier\Slugifier' => __DIR__ . '/src/Bacon/Text/Slugifier/Slugifier.php',
 );
