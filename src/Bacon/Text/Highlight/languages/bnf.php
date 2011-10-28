@@ -42,6 +42,7 @@ return array(
     'strings' => array(
         'delimiter' => '\"',
     ),
+    'identifiers' => '[-a-zA-Z_]+|<[-a-zA-Z_]+>',
     'operators' => '\\(|\\)|\\[|\\]|\\{|\\}|\\.|\\:|\\=',
     'ignore_case' => false,
 );

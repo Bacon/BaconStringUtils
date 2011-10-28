@@ -48,6 +48,7 @@ return array(
     'strings' => array(
         'delimiter' => '\"',
     ),
+    'identifiers' => '([a-z]+)\\d*',
     'operators' => '\\(|\\)|\\[|\\]|\\{|\\}|\\<|\\>|\\\'|\\,|\\.|\\/|\\:|\\^|\\=|\\#|\\*|\\_|\\!',
     'ignore_case' => false,
 );

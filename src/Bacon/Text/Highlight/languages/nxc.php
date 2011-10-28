@@ -64,7 +64,7 @@ return array(
         'continuation' => '\\',
     ),
     'nested_sections' => array(
-        'lang' => 'asm',
+        'language' => 'asm',
         'delimiter' => array(
             'open' => 'asm',
             'close' => '\\}',

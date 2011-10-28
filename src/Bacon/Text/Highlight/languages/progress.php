@@ -771,6 +771,7 @@ return array(
     'pre_processor' => array(
         'prefix' => '&',
     ),
+    'identifiers' => '[a-zA-Z_][\\w\\-]*',
     'operators' => '\\(|\\)|\\[|\\]|\\{|\\}|\\,|\\;|\\:|\\<|\\>|\\!|\\=|\\/|\\*|\\%|\\+|\\-',
     'ignore_case' => false,
 );

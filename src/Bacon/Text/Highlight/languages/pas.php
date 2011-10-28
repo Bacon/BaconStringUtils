@@ -81,7 +81,7 @@ return array(
         'delimiter' => '\"|\'',
     ),
     'nested_sections' => array(
-        'lang' => 'assembler',
+        'language' => 'assembler',
         'delimiter' => array(
             'open' => 'asm',
             'close' => 'end;',

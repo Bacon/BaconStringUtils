@@ -46,32 +46,32 @@ return array(
         'delimiter' => '\"',
     ),
     'nested_sections' => array(
-        'lang' => 'php',
+        'language' => 'php',
         'delimiter' => array(
             'open' => '\\<\\?php',
             'close' => '\\?\\>',
         ),
-        'lang' => 'jsp',
+        'language' => 'jsp',
         'delimiter' => array(
             'open' => '\\<\\%[@!\\=]?',
             'close' => '.*(%>).*',
         ),
-        'lang' => 'css',
+        'language' => 'css',
         'delimiter' => array(
             'open' => '\\<style\\s+type\\=[\\\'\\\"]text\\/css[\\\'\\\"]\\>',
             'close' => '\\<\\/style\\>',
         ),
-        'lang' => 'js',
+        'language' => 'js',
         'delimiter' => array(
             'open' => '\\<script\\s+language\\=\\\"[jJ]ava[sS]cript\\\"(?:\\s+type\\=\\\"text\\/javascript\\\")?\\>',
             'close' => '\\<\\/script\\>',
         ),
-        'lang' => 'js',
+        'language' => 'js',
         'delimiter' => array(
             'open' => '\\<script\\s+language=[\\\"\\\'][jJ]ava[sS]cript[\\\"\\\'](?:\\s+type=[\\\"\\\']text/javascript[\\\"\\\'])?[^>]*\\>',
             'close' => '\\<\\/script\\>',
         ),
-        'lang' => 'js',
+        'language' => 'js',
         'delimiter' => array(
             'open' => '\\<script(?:\\s+type=[\\\"\\\']text/javascript[\\\"\\\'])\\s+language=[\\\"\\\'][jJ]ava[sS]cript[\\\"\\\']?[^>]*\\>',
             'close' => '\\<\\/script\\>',

@@ -18,7 +18,7 @@
 return array_replace_recursive(array(
     'description' => 'PL/Python',
     'nested_sections' => array(
-        'lang' => 'python',
+        'language' => 'python',
         'delimiter' => array(
             'open' => '\\$\\$',
             'close' => '\\$\\$\\s+LANGUAGE',

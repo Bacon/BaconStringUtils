@@ -18,7 +18,7 @@
 return array_replace_recursive(array(
     'description' => 'PL/Tcl',
     'nested_sections' => array(
-        'lang' => 'tcl',
+        'language' => 'tcl',
         'delimiter' => array(
             'open' => '\\$\\$',
             'close' => '\\$\\$\\s+LANGUAGE',

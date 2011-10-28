@@ -204,6 +204,7 @@ return array(
     'strings' => array(
         'delimiter' => '\"|\'',
     ),
+    'identifiers' => '[a-zA-Z_][\\w\\d\\*]*',
     'operators' => '\\(|\\)|\\[|\\]|\\{|\\}|\\,|\\:|\\&|\\<|\\>|\\!|\\=|\\/|\\*|\\%|\\+|\\-|\\.',
     'ignore_case' => true,
 );

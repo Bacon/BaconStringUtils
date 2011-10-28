@@ -62,6 +62,7 @@ return array(
     'pre_processor' => array(
         'prefix' => '%',
     ),
+    'identifiers' => '[a-z][a-zA-Z0-9_\']*',
     'operators' => '\\(|\\)|\\[|\\]|\\.|\\,|\\;|\\:|\\&|\\<|\\>|\\!|\\=|\\/|\\*|\\%|\\+|\\-|\\~|\\^',
     'ignore_case' => false,
 );

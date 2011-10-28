@@ -46,12 +46,12 @@ return array(
         'delimiter' => '\"',
     ),
     'nested_sections' => array(
-        'lang' => 'actionscript',
+        'language' => 'actionscript',
         'delimiter' => array(
             'open' => ' \\<\\!\\[CDATA\\[  ',
             'close' => ' \\]\\]\\> ',
         ),
-        'lang' => 'css',
+        'language' => 'css',
         'delimiter' => array(
             'open' => '<mx\\:Style>',
             'close' => '<\\/mx\\:Style>',

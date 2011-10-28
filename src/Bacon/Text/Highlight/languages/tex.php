@@ -51,22 +51,22 @@ return array(
         ),
     ),
     'nested_sections' => array(
-        'lang' => 'perl',
+        'language' => 'perl',
         'delimiter' => array(
             'open' => '\\\\perl(?:re)?newcommand\\{\\\\\\w+\\}\\[.*\\]\\{',
             'close' => '\\{',
         ),
-        'lang' => 'perl',
+        'language' => 'perl',
         'delimiter' => array(
             'open' => '\\\\perl(?:re)?newenvironment\\{\\w+\\}\\[.*\\]\\{',
             'close' => '\\{',
         ),
-        'lang' => 'inc_luatex',
+        'language' => 'inc_luatex',
         'delimiter' => array(
             'open' => '\\\\directlua0?.*?\\{',
             'close' => '(?<!\\{)\\}',
         ),
-        'lang' => 'r',
+        'language' => 'r',
         'delimiter' => array(
             'open' => '\\<\\<.*\\>\\>\\=',
             'close' => '@',

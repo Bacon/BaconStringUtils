@@ -473,6 +473,7 @@ return array(
     'pre_processor' => array(
         'prefix' => '\\.',
     ),
+    'identifiers' => '[a-zA-Z_]\\w*[\\.\\+\\-]?',
     'operators' => '\\(|\\)|\\[|\\]|\\{|\\}|\\,|\\:|\\&|\\<|\\>|\\!|\\=|\\/|\\*|\\%|\\+|\\-',
     'enable_indentation' => true,
     'ignore_case' => true,

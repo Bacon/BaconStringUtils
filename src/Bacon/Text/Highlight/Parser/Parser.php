@@ -110,7 +110,14 @@ class Parser
      * 
      * @var resource
      */
-    protected $input; 
+    protected $input;
+    
+    /**
+     * Host language.
+     * 
+     * @var string
+     */
+    protected $hostLanguage;
     
     /**
      * Parse a source stream.
@@ -119,7 +126,7 @@ class Parser
      * @param  string   $language
      * @return array
      */
-    public function parse($input, $language = null)
+    public function parse($input, $language)
     {
         if (!is_resource($input)) {
             throw new Exception\InvalidArgumentException('Input is not a valid resource');
@@ -134,9 +141,42 @@ class Parser
         $this->data  = array();
         $this->input = $input;
         
+        $this->loadLanguage($language);
         $this->processRootState();
         
         return $this->data;
+    }
+    
+    /**
+     * Load a language.
+     * 
+     * @param  string $language
+     * @return void
+     */
+    protected function loadLanguage($language)
+    {
+        if (!isset($this->syntaxes[$language])) {
+            $this->syntaxes[$language] = new Syntax($language);
+        }
+        
+        $this->currentSyntax = $this->syntaxes[$language];
+    }
+    
+    /**
+     * Load an embedded language.
+     * 
+     * @param  string $language
+     * @return void
+     */
+    protected function loadEmbeddedLanguage($language)
+    {
+        if ($this->hostLanguage === null) {
+            $this->hostLanguage = '';
+        }
+        
+        $this->loadLanguage($language);
+        
+        // @todo
     }
     
     /**
@@ -149,18 +189,7 @@ class Parser
         $eol = ($this->lineIndex === strlen($this->line));
         
         if ($eol) {
-            $eol = false;
-            
-            if ($this->preFormatter->isEnabled()) {
-                if (!$this->preFormatter->hasMoreLines()) {
-                    $eof = $this->readNewLine();
-                    $this->preFormatter->setLine($this->line);
-                }
-                
-                $this->line = $this->preFormatter->getNextLine();
-            } else {
-                $eof = $this->readNewLine();
-            }
+            $eof = $this->readNewLine();
             
             $this->lineIndex = 0;
             $this->lineNumber++;
@@ -186,7 +215,7 @@ class Parser
         $groupId           = 0;
         $regexElements     = $this->currentSyntax->getRegexElements();
         $numElements       = count($regexElements);
-        
+        var_dump($regexElements);
         for ($i = 0; $i < $numElements; $i++) {
             $element = $regexElements[$i];
         }
@@ -200,22 +229,14 @@ class Parser
      */
     protected function readNewLine()
     {
-        if ($this->lindeIndex) {
+        if ($this->lineIndex) {
             $this->terminatingChar = $this->line[$this->lineIndex - 1];
         }
         
-        if ($this->formattingPossible && $this->formattingEnabled) {
-            $eof = !$this->formatter->hasMoreLines();
-            
-            if (!$eof) {
-                $this->line = $this->formatter->getNextLine();
-            }
-        } else {
-            $this->line = fgets($this->input);
-            $eof        = ($this->line === false);
-        }
+        $this->line = fgets($this->input);
+        $eof        = ($this->line === false);
         
-        return ($eof || $lthis->lineNumber === $this->lineCount);
+        return $eof;
     }
     
     /**
@@ -225,7 +246,7 @@ class Parser
      */
     protected function flushWhitespaceBuffer()
     {
-        $this->data[]           = $this->whitespaceBuffer;
+        $this->data[]           = array('whitespace', $this->whitespaceBuffer);
         $this->whitespaceBuffer = '';
     }
     
@@ -320,18 +341,7 @@ class Parser
 
         $this->flushWhitespaceBuffer();
     }
-    
-    /**
-     * Load an embedded language.
-     * 
-     * @param  string $language
-     * @return void
-     */
-    protected function loadEmbeddedLanguage($language)
-    {
-        throw new Exception\RuntimeException(sprintf('Embedded language "%s" could not be loaded'));
-    }
-    
+       
     /**
      * Get the current state.
      * 
@@ -729,24 +739,9 @@ class Parser
                 
                 case States::_EOL:
                     $this->appendMaskedToken();
-                    
-                    if ($this->preFormatter->isEnabled() && $this->preFormatter->isWrappedLine($this->lineNumber - 1)) {
-                        $exitState = false;
-                    } else {
-                        $exitState = true;
-                    }
-                    
-                    if (!$exitState) {
-                        $this->flushWhitespaceBuffer();
-                        $this->closeTag(States::SL_COMMENT);
-                    }
-                    
+                    $exitState = true;
+                                       
                     $this->appendLineNumber();
-                    
-                    if (!$exitState) {
-                        $this->flushWhitespaceBuffer();
-                        $this->openTag(States::SL_COMMENT);
-                    }
                     break;
                 
                 case States::_EOF:
@@ -792,24 +787,9 @@ class Parser
                 
                 case States::_EOL:
                     $this->appendMaskedToken();
-                    
-                    if ($this->preFormatter->isEnabled() && $this->preFormatter->isWrappedLine($this->lineNumber - 1)) {
-                        $exitState = false;
-                    } else {
-                        $exitState = ($this->terminatingChar !== $this->currentSyntax->getContinuationChar());
-                    }
-                    
-                    if (!$exitState) {
-                        $this->flushWhitespaceBuffer();
-                        $this->closeTag(States::DIRECTIVE);
-                    }
-                    
                     $this->appendLineNumber();
                     
-                    if (!$exitState) {
-                        $this->flushWhitespaceBuffer();
-                        $this->openTag(States::DIRECTIVE);
-                    }
+                    $exitState = ($this->terminatingChar !== $this->currentSyntax->getContinuationChar());
                     break;
                 
                 case States::ML_COMMENT:

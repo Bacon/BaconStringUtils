@@ -78,6 +78,7 @@ return array(
     'strings' => array(
         'delimiter' => '\"|\'',
     ),
+    'identifiers' => '[a-zA-Z_]+\\$?',
     'operators' => '\\(|\\)|\\[|\\]|\\{|\\}|\\,|\\;|\\.|\\:|\\&|\\<|\\>|\\!|\\=|\\/|\\*|\\%|\\+|\\-|\\~|\\|',
     'ignore_case' => true,
 );

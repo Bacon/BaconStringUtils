@@ -34,13 +34,6 @@
  */
 class LanguageDefinitionParser {   
     /**
-     * Parser regexes.
-     */
-    const REGEX_IDENTIFIER = '[a-zA-Z_]\w*';
-    const REGEX_NUMBER     = '(?:0x|0X)[0-9a-fA-F]+|\d*[\.]?\d+(?:[eE][\-\+]\d+)?[lLuU]*';
-    const REGEX_ESCSEQ     = '\\\\u[A-Fa-f0-9]{4}|\\\\\\d{3}|\\\\x[A-Fa-f0-9]{2}|\\\\[ntvbrfa\\\\\\?\'"]';
-
-    /**
      * Load a langauge definition.
      * 
      * @param  string $path
@@ -259,7 +252,7 @@ class LanguageDefinitionParser {
             $indent = str_repeat(' ', 8);
 
             foreach ($def['NestedSections'] as $section) {
-                $code .= $indent . "'lang' => " . (is_array($section['Lang']) ? $section['Lang'][0] : "'" . addslashes($section['Lang']) . "'") . ",\n";
+                $code .= $indent . "'language' => " . (is_array($section['Lang']) ? $section['Lang'][0] : "'" . addslashes($section['Lang']) . "'") . ",\n";
                 
                 $code .= $indent . "'delimiter' => array(\n";
                 $indent = str_repeat(' ', 12);
@@ -277,6 +270,10 @@ class LanguageDefinitionParser {
 
         if (isset($def['Digits'])) {
             $code .= $indent . "'digits' => " . (is_array($def['Digits']) ? $def['Digits'][0] : "'" . addslashes($def['Digits']) . "'") . ",\n";
+        }
+        
+        if (isset($def['Identifiers'])) {
+            $code .= $indent . "'identifiers' => " . (is_array($def['Identifiers']) ? $def['Identifiers'][0] : "'" . addslashes($def['Identifiers']) . "'") . ",\n";
         }
         
         if (isset($def['Operators'])) {

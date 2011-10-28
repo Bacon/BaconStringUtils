@@ -46,8 +46,12 @@ class States
     const KEYWORD          = 10;
     
     const ML_COMMENT_END      = 30;
-    const DIRECTIVE_END       = 31;
-    const STRING_END          = 32;
+    const SL_COMMENT_END      = 31;
+    const DIRECTIVE_END       = 32;
+    const STRING_END          = 33;
+    const KEYWORD_END         = 34;
+    const NUMBER_END          = 35;
+    const ESC_CHAR_END        = 36;
     const IDENTIFIER_BEGIN    = 40;
     const IDENTIFIER_END      = 41;
     const EMBEDDED_CODE_BEGIN = 42;

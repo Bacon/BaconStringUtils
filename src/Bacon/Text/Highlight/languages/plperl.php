@@ -18,7 +18,7 @@
 return array_replace_recursive(array(
     'description' => 'PL/Perl',
     'nested_sections' => array(
-        'lang' => 'perl',
+        'language' => 'perl',
         'delimiter' => array(
             'open' => '\\$\\$',
             'close' => '\\$\\$\\s+LANGUAGE',

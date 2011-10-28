@@ -121,6 +121,7 @@ return array(
     'strings' => array(
         'delimiter' => '\"|\'',
     ),
+    'identifiers' => '[a-zA-Z_][\\w\\-]*',
     'operators' => '\\(|\\)|\\[|\\]|\\{|\\}|\\,|\\;|\\:|\\&|\\!|\\=|\\/|\\*|\\%|\\+|\\-',
     'ignore_case' => false,
 );
