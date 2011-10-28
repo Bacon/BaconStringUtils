@@ -45,12 +45,14 @@ class States
     const SYMBOL           = 9;
     const KEYWORD          = 10;
     
-    const IDENTIFIER_BEGIN    = 30;
-    const IDENTIFIER_END      = 31;
-    const EMBEDDED_CODE_BEGIN = 32;
-    const EMBEDDED_CODE_END   = 33;
+    const ML_COMMENT_END      = 30;
+    const IDENTIFIER_BEGIN    = 40;
+    const IDENTIFIER_END      = 41;
+    const EMBEDDED_CODE_BEGIN = 42;
+    const EMBEDDED_CODE_END   = 43;
     
-    const _EOL = 90;
-    const _EOF = 91;
-    const _WS  = 92;
+    const _EOL     = 90;
+    const _EOF     = 91;
+    const _WS      = 92;
+    const _UNKNOWN = 93;
 }
