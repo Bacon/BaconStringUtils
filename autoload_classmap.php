@@ -16,10 +16,6 @@
  */
 
 return array (
-  'Bacon\Text\Highlight\Parser\Parser' => __DIR__ . '/src/Bacon/Text/Highlight/Parser/Parser.php',
-  'Bacon\Text\Highlight\Parser\Syntax' => __DIR__ . '/src/Bacon/Text/Highlight/Parser/Syntax.php',
-  'Bacon\Text\Highlight\Parser\States' => __DIR__ . '/src/Bacon/Text/Highlight/Parser/States.php',
-  'Bacon\Text\Highlight\Generator\Generator' => __DIR__ . '/src/Bacon/Text/Highlight/Generator/Generator.php',
-  'Bacon\Text\UniDecode\UniDecode' => __DIR__ . '/src/Bacon/Text/UniDecode/UniDecode.php',
-  'Bacon\Text\Slugifier\Slugifier' => __DIR__ . '/src/Bacon/Text/Slugifier/Slugifier.php',
+  'Bacon\\Text\\UniDecode\\UniDecode' => __DIR__ . DIRECTORY_SEPARATOR . '' . DIRECTORY_SEPARATOR . 'home' . DIRECTORY_SEPARATOR . 'dasprid' . DIRECTORY_SEPARATOR . 'dev' . DIRECTORY_SEPARATOR . 'bacon' . DIRECTORY_SEPARATOR . 'bin' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'Bacon' . DIRECTORY_SEPARATOR . 'Text' . DIRECTORY_SEPARATOR . 'UniDecode' . DIRECTORY_SEPARATOR . 'UniDecode.php',
+  'Bacon\\Text\\Slugifier\\Slugifier' => __DIR__ . DIRECTORY_SEPARATOR . '' . DIRECTORY_SEPARATOR . 'home' . DIRECTORY_SEPARATOR . 'dasprid' . DIRECTORY_SEPARATOR . 'dev' . DIRECTORY_SEPARATOR . 'bacon' . DIRECTORY_SEPARATOR . 'bin' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'Bacon' . DIRECTORY_SEPARATOR . 'Text' . DIRECTORY_SEPARATOR . 'Slugifier' . DIRECTORY_SEPARATOR . 'Slugifier.php',
 );
