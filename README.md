@@ -10,14 +10,6 @@ Components
 ----------
 The library currently contains the following components:
 
-*   **Bacon\Text\Highlight**
-    Source code highlighter.
-
-    This is a port of the highlight program by Andrew Simon. It uses a converted
-    form of its language definitions, and an adapted form of the its source code
-    parser. This makes it possible to highlight more than 150 languages in
-    different output formats.
-
 *   **Bacon\Text\Slugifier**
     URI-friendly slug generator.
 
