@@ -1,50 +1,32 @@
 <?php
 /**
- * Bacon.
+ * BaconStringUtils
  *
- * LICENSE
- *
- * This source file is subject to the new BSD license that is bundled
- * with this package in the file LICENSE.txt.
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to mail@dasprids.de so I can send you a copy immediately.
- *
- * @category   Bacon
- * @package    Bacon_Text
- * @subpackage UniDecode
- * @copyright  Copyright (c) 2011 Ben Scholzen <mail@dasprids.de>
- * @license    New BSD License
+ * @link      http://github.com/Bacon/BaconStringUtils For the canonical source repository
+ * @copyright 2011-2012 Ben Scholzen 'DASPRiD'
+ * @license   http://opensource.org/licenses/BSD-2-Clause Simplified BSD License
  */
 
-/**
- * @namespace
- */
-namespace Bacon\Text\UniDecode;
+
+namespace BaconStringUtils;
 
 /**
  * Unicode to ASCII decoder.
- * 
+ *
  * Ported from the Python UniDecode implementation.
- * 
- * @category   Bacon
- * @package    Bacon_Text
- * @subpackage UniDecode
- * @copyright  Copyright (c) 2011 Ben Scholzen <mail@dasprids.de>
- * @license    New BSD License
  */
-class UniDecode
+class UniDecoder
 {
     /**
      * Transliteration tables.
-     * 
+     *
      * @var array
      */
     protected static $tables = array();
-    
+
     /**
      * Decode an UTF-8 encoded unicode string to ASCII.
-     * 
+     *
      * @param  string $string
      * @return string
      */
@@ -54,13 +36,13 @@ class UniDecode
 
         foreach (preg_split('()u', $string, -1, PREG_SPLIT_NO_EMPTY) as $char) {
             $codepoint = $this->uniOrd($char);
-            
+
             if ($codepoint < 0x80) {
                 // Basic ASCII
                 $return .= chr($codepoint);
                 continue;
             }
-            
+
             if ($codepoint > 0xeffff) {
                 // Characters in Private Use Area and above are ignored
                 continue;
@@ -80,17 +62,17 @@ class UniDecode
 
         return $return;
     }
-    
+
     /**
      * Get unicode codepoint from character.
-     * 
+     *
      * @param  string $char
      * @return integer
      */
     protected function uniOrd($char)
     {
         $h = ord($char[0]);
-        
+
         if ($h <= 0x7f) {
             return $h;
         } else if ($h < 0xc2) {

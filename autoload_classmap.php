@@ -16,6 +16,6 @@
  */
 
 return array (
-  'Bacon\Text\UniDecode\UniDecode' => __DIR__ . '/src/Bacon/Text/UniDecode/UniDecode.php',
-  'Bacon\Text\Slugifier\Slugifier' => __DIR__ . '/src/Bacon/Text/Slugifier/Slugifier.php',
+    'Bacon\Text\UniDecode\UniDecode' => __DIR__ . '/src/Bacon/Text/UniDecode/UniDecode.php',
+    'Bacon\Text\Slugifier\Slugifier' => __DIR__ . '/src/Bacon/Text/Slugifier/Slugifier.php',
 );

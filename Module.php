@@ -1,58 +1,30 @@
 <?php
 /**
- * Bacon.
+ * BaconStringUtils
  *
- * LICENSE
- *
- * This source file is subject to the new BSD license that is bundled
- * with this package in the file LICENSE.txt.
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to mail@dasprids.de so I can send you a copy immediately.
- *
- * @category   Bacon
- * @copyright  Copyright (c) 2011 Ben Scholzen <mail@dasprids.de>
- * @license    New BSD License
+ * @link      http://github.com/Bacon/BaconStringUtils For the canonical source repository
+ * @copyright 2011-2012 Ben Scholzen 'DASPRiD'
+ * @license   http://opensource.org/licenses/BSD-2-Clause Simplified BSD License
  */
+
+namespace BaconStringUtils;
+
+use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 
 /**
- * @namespace
+ * Module providing typed string utilities.
  */
-namespace Bacon;
-
-use Zend\Module\Manager,
-    Zend\Config\Config,
-    Zend\Loader\AutoloaderFactory;
-
-/**
- * Module entry point.
- * 
- * @category   Bacon
- * @package    Bacon
- * @copyright  Copyright (c) 2011 Ben Scholzen <mail@dasprids.de>
- * @license    New BSD License
- */
-class Module
+class Module implements AutoloaderProviderInterface
 {
     /**
-     * Initiate the module.
-     * 
-     * @param  Manager $moduleManager 
-     * @return void
+     * getAutoloaderConfig(): defined by AutoloaderProviderInterface.
+     *
+     * @see    AutoloaderProviderInterface::getAutoloaderConfig()
+     * @return array
      */
-    public function init(Manager $moduleManager)
+    public function getAutoloaderConfig()
     {
-        $this->initAutoloader();
-    }
-
-    /**
-     * Initiate the autoloder.
-     * 
-     * @return void
-     */
-    protected function initAutoloader()
-    {
-        AutoloaderFactory::factory(array(
+        return array(
             'Zend\Loader\ClassMapAutoloader' => array(
                 __DIR__ . '/autoload_classmap.php',
             ),
@@ -61,6 +33,6 @@ class Module
                     __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
                 ),
             ),
-        ));
+        );
     }
 }
