@@ -1,0 +1,22 @@
+{
+    "name": "bacon/bacon-string-utils",
+    "description": "BaconStringUtils contain utitilies to work with strings.",
+    "license" : "BSD-2-Clause",
+    "homepage": "https://github.com/Bacon/BaconStringUtils",
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "authors": [
+        {
+            "name": "Ben Scholzen 'DASPRiD'",
+            "email": "mail@dasprids.de",
+            "homepage": "http://www.dasprids.de",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "BaconStringUtils": "src/"
+        }
+    }
+}
