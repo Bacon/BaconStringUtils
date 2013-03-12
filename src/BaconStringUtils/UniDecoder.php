@@ -3,10 +3,9 @@
  * BaconStringUtils
  *
  * @link      http://github.com/Bacon/BaconStringUtils For the canonical source repository
- * @copyright 2011-2012 Ben Scholzen 'DASPRiD'
+ * @copyright 2011-2013 Ben Scholzen 'DASPRiD'
  * @license   http://opensource.org/licenses/BSD-2-Clause Simplified BSD License
  */
-
 
 namespace BaconStringUtils;
 
@@ -52,7 +51,7 @@ class UniDecoder
             $position = $codepoint % 256; // Last two hex digits
 
             if (!isset(self::$tables[$section])) {
-                self::$tables[$section] = @include sprintf('%s/tables/x%03x.php', __DIR__, $section);
+                self::$tables[$section] = @include sprintf('%s/UniDecoder/x%03x.php', __DIR__, $section);
             }
 
             if (isset(self::$tables[$section][$position])) {

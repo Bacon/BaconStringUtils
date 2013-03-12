@@ -1,16 +1,12 @@
-Bacon - ZF2 common code across projects
-=======================================
+BaconStringUtils
+================
 
 Introduction
 ------------
-Bacon is a library containing useful components used across many projects.
-Everything is licensed under the New BSD license (see LICENSE file).
+BaconStringUtils contain utitilies to work with strings. The currently included
+components are:
 
-Components
-----------
-The library currently contains the following components:
-
-*   **Bacon\Text\Slugifier**
+*   **BaconStringUtils\Slugifier**
     URI-friendly slug generator.
 
     You sometimes need to display a text value in a URI, like for instance the
@@ -18,7 +14,7 @@ The library currently contains the following components:
     component helps you to generate such a usable slug. It interally makes use
     of the Bacon\Text\UniDecode component also provided by this library.
 
-*   **Bacon\Text\UniDecode**
+*   **BaconStringUtils\UniDecoder**
     US-ASCII transliterations of Unicode text.
 
     It often happens that you have non-Roman text data in Unicode, but you can't
