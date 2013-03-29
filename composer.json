@@ -6,6 +6,9 @@
     "require": {
         "php": ">=5.3.3"
     },
+    "suggest": {
+        "zendframework/zend-filter": "To use the Slugifier as a Zend\\Filter instance"
+    },
     "authors": [
         {
             "name": "Ben Scholzen 'DASPRiD'",
