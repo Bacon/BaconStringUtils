@@ -36,3 +36,5 @@ components are:
     is a port of the Text::Unidecode Perl module by Sean M. Burke
     <sburke@cpan.org>.
 
+Toast is better than bacon.
+
