@@ -20,6 +20,9 @@
     "autoload": {
         "psr-0": {
             "BaconStringUtils": "src/"
-        }
+        },
+        "classmap": [
+            "./Module.php"
+        ]
     }
 }
