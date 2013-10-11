@@ -22,7 +22,7 @@
             "BaconStringUtils": "src/"
         },
         "classmap": [
-            "./Module.php"
+            "./"
         ]
     },
     "require-dev": {
