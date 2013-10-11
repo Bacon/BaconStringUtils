@@ -17,14 +17,14 @@ class Slugifier
     /**
      * Default UniDecoder instance.
      *
-     * @var UniDecode
+     * @var UniDecoder
      */
     protected static $defaultUniDecoder;
 
     /**
      * UniDecoder instance.
      *
-     * @var UniDecode
+     * @var UniDecoder
      */
     protected $uniDecoder;
 
