@@ -50,6 +50,8 @@ class SlugifierTest extends TestCase
             $this->assertInstanceOf('InvalidArgumentException', $e);
             $this->assertContains('must be an instance of BaconStringUtils\UniDecoder', $e->getMessage());
         }
+
+        restore_error_handler();
     }
 
     public function testDefaultUnidecoderSetter()
@@ -73,5 +75,7 @@ class SlugifierTest extends TestCase
             $this->assertInstanceOf('InvalidArgumentException', $e);
             $this->assertContains('must be an instance of BaconStringUtils\UniDecoder', $e->getMessage());
         }
+
+        restore_error_handler();
     }
 }
