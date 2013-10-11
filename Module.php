@@ -15,7 +15,7 @@ use Zend\ModuleManager\Feature;
  * Module providing typed string utilities.
  */
 class Module implements 
-    Feature\AutoloaderProviderInterface
+    Feature\AutoloaderProviderInterface,
     Feature\FilterProviderInterface
 {
     /**
