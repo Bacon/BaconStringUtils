@@ -24,5 +24,8 @@
         "classmap": [
             "./Module.php"
         ]
+    },
+    "require-dev": {
+        "zendframework/zendframework": "2.*"
     }
 }
