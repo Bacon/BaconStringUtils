@@ -9,12 +9,14 @@
 
 namespace BaconStringUtils;
 
-use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
+use Zend\ModuleManager\Feature;
 
 /**
  * Module providing typed string utilities.
  */
-class Module implements AutoloaderProviderInterface
+class Module implements 
+    Feature\AutoloaderProviderInterface
+    Feature\FilterProviderInterface
 {
     /**
      * getAutoloaderConfig(): defined by AutoloaderProviderInterface.
@@ -35,4 +37,16 @@ class Module implements AutoloaderProviderInterface
             ),
         );
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getFilterConfig()
+    {
+        return array(
+            'invokables' => array(
+                'slugify' => 'BaconStringUtils\Filter\Slugify',
+            ),
+        );
+    }  
 }
