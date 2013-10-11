@@ -184,14 +184,14 @@ class UniDecoderTest extends TestCase
     {
         if ($code <= 0x7f) {
             $char = chr($code);
-        } else if ($code <= 0x7ff) {
+        } elseif ($code <= 0x7ff) {
             $char = chr(0xc0 | $code >> 6)
                   . chr(0x80 | $code & 0x3f);
-        } else if ($code <= 0xffff) {
+        } elseif ($code <= 0xffff) {
             $char =  chr(0xe0 | $code >> 12)
                   . chr(0x80 | $code >> 6 & 0x3f)
                   . chr(0x80 | $code & 0x3f);
-        } else if ($code <= 0x10ffff) {
+        } elseif ($code <= 0x10ffff) {
             $char =  chr(0xf0 | $code >> 18)
                   . chr(0x80 | $code >> 12 & 0x3f)
                   . chr(0x80 | $code >> 6 & 0x3f)
