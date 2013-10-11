@@ -1,8 +1,10 @@
 <?php
 /**
- * @author Stefano Torresi (http://stefanotorresi.it)
- * @license See the file LICENSE.txt for copying permission.
- * ************************************************
+ * BaconStringUtils
+ *
+ * @link      http://github.com/Bacon/BaconStringUtils For the canonical source repository
+ * @copyright 2011-2013 Ben Scholzen 'DASPRiD'
+ * @license   http://opensource.org/licenses/BSD-2-Clause Simplified BSD License
  */
 
 namespace BaconStringUtils\Filter;
