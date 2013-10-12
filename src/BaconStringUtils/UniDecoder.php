@@ -65,7 +65,7 @@ class UniDecoder
     /**
      * Get unicode codepoint from character.
      *
-     * @param  string $char
+     * @param  string  $char
      * @return integer
      */
     protected function uniOrd($char)
@@ -74,14 +74,14 @@ class UniDecoder
 
         if ($h <= 0x7f) {
             return $h;
-        } else if ($h < 0xc2) {
+        } elseif ($h < 0xc2) {
             return null;
-        } else if ($h <= 0xdf) {
+        } elseif ($h <= 0xdf) {
             return ($h & 0x1f) << 6 | (ord($char[1]) & 0x3f);
-        } else if ($h <= 0xef) {
+        } elseif ($h <= 0xef) {
             return ($h & 0x0f) << 12 | (ord($char[1]) & 0x3f) << 6
                                      | (ord($char[2]) & 0x3f);
-        } else if ($h <= 0xf4) {
+        } elseif ($h <= 0xf4) {
             return ($h & 0x0f) << 18 | (ord($char[1]) & 0x3f) << 12
                                      | (ord($char[2]) & 0x3f) << 6
                                      | (ord($char[3]) & 0x3f);
