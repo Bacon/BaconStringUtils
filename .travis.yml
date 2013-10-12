@@ -17,3 +17,6 @@ script:
 
 after_script:
  - ./vendor/bin/coveralls -v
+
+notifications:
+   irc: "chat.freenode.net#zftalk.modules"
