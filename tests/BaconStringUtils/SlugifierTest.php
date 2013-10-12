@@ -26,7 +26,10 @@ class SlugifierTest extends TestCase
 
     public function testSlugifying()
     {
-        $this->assertEquals('hello-dont-uber-bacon-no-13', $this->slugifier->slugify('Hello, don\'t "Über"-Bacon No. 13###'));
+        $this->assertEquals(
+            'hello-dont-uber-bacon-no-13',
+            $this->slugifier->slugify('Hello, don\'t "Über"-Bacon No. 13###')
+        );
     }
 
     public function testUnidecoderSetter()
@@ -37,9 +40,11 @@ class SlugifierTest extends TestCase
 
         $this->assertSame($decoder, $this->slugifier->uniDecoder());
 
-        set_error_handler(function($code, $message){
-            throw new \InvalidArgumentException($message);
-        });
+        set_error_handler(
+            function ($code, $message) {
+                throw new \InvalidArgumentException($message);
+            }
+        );
 
         $fakeDecoder = new \stdClass();
 
@@ -62,9 +67,11 @@ class SlugifierTest extends TestCase
 
         $this->assertSame($decoder, $this->slugifier->uniDecoder());
 
-        set_error_handler(function($code, $message){
-            throw new \InvalidArgumentException($message);
-        });
+        set_error_handler(
+            function ($code, $message) {
+                throw new \InvalidArgumentException($message);
+            }
+        );
 
         $fakeDecoder = new \stdClass();
 
