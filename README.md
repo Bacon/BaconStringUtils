@@ -1,6 +1,10 @@
 BaconStringUtils
 ================
 
+Master:
+[![Build Status](https://api.travis-ci.org/Bacon/BaconStringUtils.png?branch=master)](http://travis-ci.org/Bacon/BaconStringUtils)
+[![Coverage Status](https://coveralls.io/repos/Bacon/BaconStringUtils/badge.png?branch=master)](https://coveralls.io/r/Bacon/BaconStringUtils)
+
 Introduction
 ------------
 BaconStringUtils contain utitilies to work with strings. The currently included
