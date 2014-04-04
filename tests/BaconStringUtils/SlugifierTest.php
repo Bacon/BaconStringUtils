@@ -10,6 +10,7 @@
 namespace BaconStringUtils;
 
 use BaconStringUtils\Slugifier;
+use PHPUnit_Framework_Error as ErrorException;
 use PHPUnit_Framework_TestCase as TestCase;
 
 class SlugifierTest extends TestCase
@@ -35,54 +36,28 @@ class SlugifierTest extends TestCase
     public function testUnidecoderSetter()
     {
         $decoder = $this->getMock('BaconStringUtils\UniDecoder');
-
         $this->slugifier->setUniDecoder($decoder);
-
         $this->assertSame($decoder, $this->slugifier->uniDecoder());
 
-        set_error_handler(
-            function ($code, $message) {
-                throw new \InvalidArgumentException($message);
-            }
-        );
-
-        $fakeDecoder = new \stdClass();
-
         try {
-            $this->slugifier->setUniDecoder($fakeDecoder);
-            $this->fail("Setting a wrong type was successful");
-        } catch (\Exception $e) {
-            $this->assertInstanceOf('InvalidArgumentException', $e);
+            $this->slugifier->setUniDecoder(new \stdClass());
+            $this->fail('Setting a wrong type was successful');
+        } catch (ErrorException $e) {
             $this->assertContains('must be an instance of BaconStringUtils\UniDecoder', $e->getMessage());
         }
-
-        restore_error_handler();
     }
 
     public function testDefaultUnidecoderSetter()
     {
         $decoder = $this->getMock('BaconStringUtils\UniDecoder');
-
-        $this->slugifier->setDefaultUniDecoder($decoder);
-
+        Slugifier::setDefaultUniDecoder($decoder);
         $this->assertSame($decoder, $this->slugifier->uniDecoder());
 
-        set_error_handler(
-            function ($code, $message) {
-                throw new \InvalidArgumentException($message);
-            }
-        );
-
-        $fakeDecoder = new \stdClass();
-
         try {
-            $this->slugifier->setDefaultUniDecoder($fakeDecoder);
-            $this->fail("Setting a wrong type was successful");
-        } catch (\Exception $e) {
-            $this->assertInstanceOf('InvalidArgumentException', $e);
+            Slugifier::setDefaultUniDecoder(new \stdClass());
+            $this->fail('Setting a wrong type was successful');
+        } catch (ErrorException $e) {
             $this->assertContains('must be an instance of BaconStringUtils\UniDecoder', $e->getMessage());
         }
-
-        restore_error_handler();
     }
 }

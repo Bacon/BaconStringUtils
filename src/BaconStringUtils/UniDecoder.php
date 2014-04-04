@@ -65,7 +65,7 @@ class UniDecoder
     /**
      * Get unicode codepoint from character.
      *
-     * @param  string  $char
+     * @param  string $char
      * @return integer
      */
     protected function uniOrd($char)

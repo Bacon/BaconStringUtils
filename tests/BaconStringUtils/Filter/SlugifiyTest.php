@@ -16,7 +16,6 @@ class SlugifiyTest extends TestCase
     public function testFilter()
     {
         $filter = new Slugify();
-
         $this->assertEquals('foo-bar', $filter->filter('Foo Bar'));
     }
 }

@@ -10,7 +10,6 @@
 namespace BaconStringUtils;
 
 use PHPUnit_Framework_TestCase as TestCase;
-use Zend\ModuleManager\ModuleManager;
 use Zend\Mvc\Service\ServiceManagerConfig;
 use Zend\ServiceManager\ServiceManager;
 

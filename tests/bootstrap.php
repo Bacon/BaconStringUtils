@@ -19,7 +19,7 @@ foreach ($loaderFiles as $file) {
     }
 }
 
-if (! isset($loader)) {
+if (!isset($loader)) {
     throw new RuntimeException("Autoloader could not be found. Did you run 'composer install --dev'?");
 }
 
