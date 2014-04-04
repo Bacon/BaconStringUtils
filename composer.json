@@ -20,9 +20,9 @@
     "autoload": {
         "psr-0": {
             "BaconStringUtils": "src/"
-        },
-        "classmap": [
-            "./Module.php"
-        ]
+        }
+    },
+    "require-dev": {
+        "zendframework/zendframework": "2.*"
     }
 }

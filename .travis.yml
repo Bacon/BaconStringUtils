@@ -1,0 +1,22 @@
+language: php
+php:
+ - "5.3"
+ - "5.4"
+ - "5.5"
+
+before_install:
+ - composer self-update
+ - composer require --dev satooshi/php-coveralls:~0.6
+ - composer install --dev
+ - pear install pear/PHP_CodeSniffer
+ - phpenv rehash
+
+script:
+ - phpunit -c tests --coverage-clover ./coverage/clover.xml
+ - phpcs src tests --standard=PSR2 --report=summary
+
+after_script:
+ - ./vendor/bin/coveralls -v
+
+notifications:
+   irc: "chat.freenode.net#zftalk.modules"

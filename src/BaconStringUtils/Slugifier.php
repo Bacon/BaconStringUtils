@@ -7,7 +7,6 @@
  * @license   http://opensource.org/licenses/BSD-2-Clause Simplified BSD License
  */
 
-
 namespace BaconStringUtils;
 
 /**
@@ -18,14 +17,14 @@ class Slugifier
     /**
      * Default UniDecoder instance.
      *
-     * @var UniDecode
+     * @var UniDecoder
      */
     protected static $defaultUniDecoder;
 
     /**
      * UniDecoder instance.
      *
-     * @var UniDecode
+     * @var UniDecoder
      */
     protected $uniDecoder;
 
@@ -50,7 +49,7 @@ class Slugifier
     /**
      * Get the uni decoder.
      *
-     * @return UniDecode
+     * @return UniDecoder
      */
     public function uniDecoder()
     {
@@ -68,10 +67,10 @@ class Slugifier
     /**
      * Set the uni decoder.
      *
-     * @param  UniDecode $decoder
+     * @param  UniDecoder $decoder
      * @return void
      */
-    public function setUniDecoder(UniDecode $decoder)
+    public function setUniDecoder(UniDecoder $decoder)
     {
         $this->uniDecoder = $decoder;
     }
@@ -79,10 +78,10 @@ class Slugifier
     /**
      * Set the default uni decoder.
      *
-     * @param  UniDecode $decoder
+     * @param  UniDecoder $decoder
      * @return void
      */
-    public static function setDefaultUniDecoder(UniDecode $decoder)
+    public static function setDefaultUniDecoder(UniDecoder $decoder)
     {
         self::$defaultUniDecoder = $decoder;
     }
