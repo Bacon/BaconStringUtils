@@ -23,8 +23,7 @@
         }
     },
     "require-dev": {
-        "zendframework/zend-filter": "2.*",
-        "zendframework/zend-modulemanager": "2.*",
+        "zendframework/zendframework": "2.*",
         "phpunit/PHPUnit": "3.7.*",
         "squizlabs/php_codesniffer": "1.*",
         "satooshi/php-coveralls": "dev-master"

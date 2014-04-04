@@ -9,7 +9,7 @@ before_install:
  - composer install
 
 script:
- - vendor/bin/phpunit -c tests --coverage-clover ./coverage/clover.xml
+ - vendor/bin/phpunit -c tests --coverage-clover tests/coverage/clover.xml
  - vendor/bin/phpcs src tests --standard=PSR2 --report=summary
 
 after_script:
