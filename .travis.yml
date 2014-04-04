@@ -6,17 +6,14 @@ php:
 
 before_install:
  - composer self-update
- - composer require --dev satooshi/php-coveralls:~0.6
- - composer install --dev
- - pear install pear/PHP_CodeSniffer
- - phpenv rehash
+ - composer install
 
 script:
- - phpunit -c tests --coverage-clover ./coverage/clover.xml
- - phpcs src tests --standard=PSR2 --report=summary
+ - vendor/bin/phpunit -c tests --coverage-clover ./coverage/clover.xml
+ - vendor/bin/phpcs src tests --standard=PSR2 --report=summary
 
 after_script:
- - ./vendor/bin/coveralls -v
+ - vendor/bin/coveralls -v
 
 notifications:
    irc: "chat.freenode.net#zftalk.modules"
