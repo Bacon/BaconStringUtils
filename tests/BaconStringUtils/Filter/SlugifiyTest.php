@@ -13,9 +13,20 @@ use PHPUnit_Framework_TestCase as TestCase;
 
 class SlugifiyTest extends TestCase
 {
+    protected $filter;
+
+
+    protected function setUp()
+    {
+        $this->filter = new Slugify();
+        $decoder = $this->getMock('\BaconStringUtils\UniDecoder');
+        $decoder->expects($this->any())->method('decode')->will($this->returnValue('Foo Bar'));
+
+        $this->filter->setUniDecoder($decoder);
+    }
+
     public function testFilter()
     {
-        $filter = new Slugify();
-        $this->assertEquals('foo-bar', $filter->filter('Foo Bar'));
+        $this->assertEquals('foo-bar', $this->filter->filter('Foo Bar'));
     }
 }
