@@ -11,7 +11,7 @@ namespace BaconStringUtils\Filter;
 
 use PHPUnit_Framework_TestCase as TestCase;
 
-class SlugifiyTest extends TestCase
+class SlugifyTest extends TestCase
 {
     protected $filter;
 
