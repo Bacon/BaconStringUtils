@@ -16,7 +16,8 @@ use Zend\ModuleManager\Feature;
  */
 class Module implements
     Feature\AutoloaderProviderInterface,
-    Feature\FilterProviderInterface
+    Feature\FilterProviderInterface,
+    Feature\ServiceProviderInterface
 {
     /**
      * getAutoloaderConfig(): defined by AutoloaderProviderInterface.
@@ -49,4 +50,17 @@ class Module implements
             ),
         );
     }
+
+    public function getServiceConfig()
+    {
+        return array(
+            'invokables' => array(
+                'BaconStringUtils\UniDecoder',
+            ),
+            'factories' => array(
+                'BaconStringUtils\Slugifier' => 'BaconStringUtils\SlugifierFactory',
+            ),
+        );
+    }
+
 }

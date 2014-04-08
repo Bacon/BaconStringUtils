@@ -14,12 +14,6 @@ namespace BaconStringUtils;
  */
 class Slugifier
 {
-    /**
-     * Default UniDecoder instance.
-     *
-     * @var UniDecoder
-     */
-    protected static $defaultUniDecoder;
 
     /**
      * UniDecoder instance.
@@ -36,7 +30,11 @@ class Slugifier
      */
     public function slugify($string)
     {
-        $string = $this->uniDecoder()->decode($string);
+        $decoder = $this->getUniDecoder();
+
+        if ($decoder instanceof UniDecoder) {
+            $string = $this->getUniDecoder()->decode($string);
+        }
         $string = strtolower($string);
         $string = str_replace("'", '', $string);
         $string = preg_replace('([^a-zA-Z0-9_-]+)', '-', $string);
@@ -51,16 +49,8 @@ class Slugifier
      *
      * @return UniDecoder
      */
-    public function uniDecoder()
+    public function getUniDecoder()
     {
-        if ($this->uniDecoder === null) {
-            if (self::$defaultUniDecoder === null) {
-                self::$defaultUniDecoder = new UniDecoder();
-            }
-
-            $this->uniDecoder = self::$defaultUniDecoder;
-        }
-
         return $this->uniDecoder;
     }
 
@@ -75,14 +65,4 @@ class Slugifier
         $this->uniDecoder = $decoder;
     }
 
-    /**
-     * Set the default uni decoder.
-     *
-     * @param  UniDecoder $decoder
-     * @return void
-     */
-    public static function setDefaultUniDecoder(UniDecoder $decoder)
-    {
-        self::$defaultUniDecoder = $decoder;
-    }
 }
