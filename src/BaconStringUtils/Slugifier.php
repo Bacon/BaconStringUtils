@@ -33,7 +33,7 @@ class Slugifier
         $decoder = $this->getUniDecoder();
 
         if ($decoder instanceof UniDecoder) {
-            $string = $this->getUniDecoder()->decode($string);
+            $string = $decoder->decode($string);
         }
         $string = strtolower($string);
         $string = str_replace("'", '', $string);
