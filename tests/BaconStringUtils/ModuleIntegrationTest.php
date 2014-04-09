@@ -51,5 +51,4 @@ class ModuleIntegrationTest extends TestCase
         $slugifierFromFactories = $this->serviceManager->get('BaconStringUtils\Slugifier');
         $this->assertInstanceOf('BaconStringUtils\Slugifier', $slugifierFromFactories);
     }
-
 }

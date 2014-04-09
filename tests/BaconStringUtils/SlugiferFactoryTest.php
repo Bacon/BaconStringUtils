@@ -42,7 +42,11 @@ class SlugiferFactoryTest extends TestCase
     {
         $decoderMock = $this->getMock('BaconStringUtils\UniDecoder');
         $serviceLocator = $this->getMock('\Zend\ServiceManager\ServiceLocatorInterface');
-        $serviceLocator->expects($this->any())->method('get')->with('BaconStringUtils\UniDecoder')->will($this->returnValue($decoderMock));
+        $serviceLocator->expects($this->any())
+                ->method('get')
+                ->with('BaconStringUtils\UniDecoder')
+                ->will($this->returnValue($decoderMock));
+
         return $serviceLocator;
     }
 }

@@ -27,5 +27,4 @@ class SlugifyFactory implements FactoryInterface
 
         return $slugify;
     }
-
 }

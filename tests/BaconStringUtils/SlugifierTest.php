@@ -40,11 +40,6 @@ class SlugifierTest extends TestCase
             $this->slugifier->slugify('  hello | "" longname*without*whitespaces#but!can<be?slugified   --  + =')
         );
         $this->assertEquals(
-            'line-break',
-            $this->slugifier->slugify("line
-                    break")
-        );
-        $this->assertEquals(
             'line-break2',
             $this->slugifier->slugify("line\n break2")
         );
@@ -53,7 +48,10 @@ class SlugifierTest extends TestCase
     public function testSlugifyingWithDecoder()
     {
         $decoder = $this->getMock('BaconStringUtils\UniDecoder');
-        $decoder->expects($this->any())->method('decode')->will($this->returnValue('Hello, don\'t "Uber"-Bacon No. 13###'));
+        $decoder->expects($this->any())
+                ->method('decode')
+                ->will($this->returnValue('Hello, don\'t "Uber"-Bacon No. 13###'));
+
         $this->slugifier->setUniDecoder($decoder);
 
         $this->assertEquals(
@@ -76,5 +74,4 @@ class SlugifierTest extends TestCase
             $this->assertContains('must be an instance of BaconStringUtils\UniDecoder', $e->getMessage());
         }
     }
-
 }

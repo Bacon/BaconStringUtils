@@ -47,7 +47,10 @@ class SlugifyFactoryTest extends TestCase
         $slugifier = $this->getMock('BaconStringUtils\Slugifier');
 
         $serviceLocator = $this->getMock('Zend\ServiceManager\ServiceLocatorInterface');
-        $serviceLocator->expects($this->any())->method('get')->with('BaconStringUtils\Slugifier')->will($this->returnValue($slugifier));
+        $serviceLocator->expects($this->any())
+                ->method('get')
+                ->with('BaconStringUtils\Slugifier')
+                ->will($this->returnValue($slugifier));
 
 
         $pluginManager = $this->getMock('Zend\Filter\FilterPluginManager');

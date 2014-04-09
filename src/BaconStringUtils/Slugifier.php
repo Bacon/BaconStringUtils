@@ -64,5 +64,4 @@ class Slugifier
     {
         $this->uniDecoder = $decoder;
     }
-
 }
