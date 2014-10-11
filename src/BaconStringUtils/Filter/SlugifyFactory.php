@@ -4,7 +4,6 @@
  *
  * @link      http://github.com/Bacon/BaconStringUtils For the canonical source repository
  * @copyright 2011-2014 Ben Scholzen 'DASPRiD'
- * @author    Witold Wasiczko <witold@wasiczko.pl>
  * @license   http://opensource.org/licenses/BSD-2-Clause Simplified BSD License
  */
 
