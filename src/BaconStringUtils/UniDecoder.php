@@ -24,7 +24,7 @@ class UniDecoder
     protected static $tables = array();
 
     /**
-     * Decode an UTF-8 encoded unicode string to ASCII.
+     * Decodes an UTF-8 encoded unicode string to ASCII.
      *
      * @param  string $string
      * @return string
@@ -63,7 +63,7 @@ class UniDecoder
     }
 
     /**
-     * Get unicode codepoint from character.
+     * Gets unicode codepoint from character.
      *
      * @param  string $char
      * @return integer

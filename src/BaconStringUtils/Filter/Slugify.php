@@ -12,16 +12,34 @@ namespace BaconStringUtils\Filter;
 use BaconStringUtils\Slugifier;
 use Zend\Filter\FilterInterface;
 
-/**
- * Filter
- */
-class Slugify extends Slugifier implements FilterInterface
+class Slugify implements FilterInterface
 {
     /**
-     * {@inheritdocs}
+     * @var Slugifier
+     */
+    protected $slugifier;
+
+    /**
+     * {@inheritdoc}
      */
     public function filter($value)
     {
-        return $this->slugify($value);
+        return $this->slugifier->slugify($value);
+    }
+
+    /**
+     * @param Slugifier $slugifier
+     */
+    public function setSlugifier(Slugifier $slugifier)
+    {
+        $this->slugifier = $slugifier;
+    }
+
+    /**
+     * @return Slugifier
+     */
+    public function getSlugifier()
+    {
+        return $this->slugifier;
     }
 }

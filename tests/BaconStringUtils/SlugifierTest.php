@@ -25,8 +25,35 @@ class SlugifierTest extends TestCase
         $this->slugifier = new Slugifier();
     }
 
+    public function testSlugifyingWithoutDecoder()
+    {
+        $this->assertEquals(
+            'hello-dont-ber-bacon-no-13',
+            $this->slugifier->slugify('Hello, don\'t "Über"-Bacon No. 13###')
+        );
+    }
+
     public function testSlugifying()
     {
+        $this->assertEquals(
+            'hello-longname-without-whitespaces-but-can-be-slugified',
+            $this->slugifier->slugify('  hello | "" longname*without*whitespaces#but!can<be?slugified   --  + =')
+        );
+        $this->assertEquals(
+            'line-break2',
+            $this->slugifier->slugify("line\n break2")
+        );
+    }
+
+    public function testSlugifyingWithDecoder()
+    {
+        $decoder = $this->getMock('BaconStringUtils\UniDecoder');
+        $decoder->expects($this->any())
+                ->method('decode')
+                ->will($this->returnValue('Hello, don\'t "Uber"-Bacon No. 13###'));
+
+        $this->slugifier->setUniDecoder($decoder);
+
         $this->assertEquals(
             'hello-dont-uber-bacon-no-13',
             $this->slugifier->slugify('Hello, don\'t "Über"-Bacon No. 13###')
@@ -35,26 +62,13 @@ class SlugifierTest extends TestCase
 
     public function testUnidecoderSetter()
     {
+        $this->assertNull($this->slugifier->getUniDecoder());
         $decoder = $this->getMock('BaconStringUtils\UniDecoder');
         $this->slugifier->setUniDecoder($decoder);
-        $this->assertSame($decoder, $this->slugifier->uniDecoder());
+        $this->assertSame($decoder, $this->slugifier->getUniDecoder());
 
         try {
             $this->slugifier->setUniDecoder(new \stdClass());
-            $this->fail('Setting a wrong type was successful');
-        } catch (ErrorException $e) {
-            $this->assertContains('must be an instance of BaconStringUtils\UniDecoder', $e->getMessage());
-        }
-    }
-
-    public function testDefaultUnidecoderSetter()
-    {
-        $decoder = $this->getMock('BaconStringUtils\UniDecoder');
-        Slugifier::setDefaultUniDecoder($decoder);
-        $this->assertSame($decoder, $this->slugifier->uniDecoder());
-
-        try {
-            Slugifier::setDefaultUniDecoder(new \stdClass());
             $this->fail('Setting a wrong type was successful');
         } catch (ErrorException $e) {
             $this->assertContains('must be an instance of BaconStringUtils\UniDecoder', $e->getMessage());
