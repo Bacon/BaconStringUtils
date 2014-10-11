@@ -11,18 +11,17 @@ namespace BaconStringUtils\Filter;
 
 use PHPUnit_Framework_TestCase as TestCase;
 
-class SlugifiyTest extends TestCase
+class SlugifyTest extends TestCase
 {
     protected $filter;
 
-
     protected function setUp()
     {
-        $this->filter = new Slugify();
-        $decoder = $this->getMock('\BaconStringUtils\UniDecoder');
-        $decoder->expects($this->any())->method('decode')->will($this->returnValue('Foo Bar'));
+        $slugifer = $this->getMock('BaconStringUtils\Slugifier');
+        $slugifer->expects($this->any())->method('slugify')->with('Foo Bar')->will($this->returnValue('foo-bar'));
 
-        $this->filter->setUniDecoder($decoder);
+        $this->filter = new Slugify();
+        $this->filter->setSlugifier($slugifer);
     }
 
     public function testFilter()

@@ -36,8 +36,19 @@ class ModuleIntegrationTest extends TestCase
 
     public function testFilterProvider()
     {
-        $filter = $this->serviceManager->get('FilterManager')->get('slugify');
+        $filterFromAlias = $this->serviceManager->get('FilterManager')->get('slugify');
+        $this->assertInstanceOf('BaconStringUtils\Filter\Slugify', $filterFromAlias);
 
-        $this->assertInstanceOf('BaconStringUtils\Filter\Slugify', $filter);
+        $filterFromFactory = $this->serviceManager->get('FilterManager')->get('BaconStringUtils\Filter\Slugify');
+        $this->assertInstanceOf('BaconStringUtils\Filter\Slugify', $filterFromFactory);
+    }
+
+    public function testServiceProvider()
+    {
+        $unidecoderFromInvocables = $this->serviceManager->get('BaconStringUtils\UniDecoder');
+        $this->assertInstanceOf('BaconStringUtils\UniDecoder', $unidecoderFromInvocables);
+
+        $slugifierFromFactories = $this->serviceManager->get('BaconStringUtils\Slugifier');
+        $this->assertInstanceOf('BaconStringUtils\Slugifier', $slugifierFromFactories);
     }
 }
