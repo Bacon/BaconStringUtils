@@ -9,21 +9,15 @@
 
 namespace BaconStringUtils;
 
-/**
- * Slugifier.
- */
 class Slugifier
 {
-
     /**
-     * UniDecoder instance.
-     *
      * @var UniDecoder
      */
     protected $uniDecoder;
 
     /**
-     * Slugify a string.
+     * Slugifies a string.
      *
      * @param  string $string
      * @return string
@@ -32,9 +26,10 @@ class Slugifier
     {
         $decoder = $this->getUniDecoder();
 
-        if ($decoder instanceof UniDecoder) {
+        if (null !== $decoder) {
             $string = $decoder->decode($string);
         }
+
         $string = strtolower($string);
         $string = str_replace("'", '', $string);
         $string = preg_replace('([^a-zA-Z0-9_-]+)', '-', $string);
@@ -45,8 +40,6 @@ class Slugifier
     }
 
     /**
-     * Get the uni decoder.
-     *
      * @return UniDecoder
      */
     public function getUniDecoder()
@@ -55,10 +48,7 @@ class Slugifier
     }
 
     /**
-     * Set the uni decoder.
-     *
-     * @param  UniDecoder $decoder
-     * @return void
+     * @param UniDecoder $decoder
      */
     public function setUniDecoder(UniDecoder $decoder)
     {

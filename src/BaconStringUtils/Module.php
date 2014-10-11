@@ -11,19 +11,12 @@ namespace BaconStringUtils;
 
 use Zend\ModuleManager\Feature;
 
-/**
- * Module providing typed string utilities.
- */
 class Module implements
     Feature\AutoloaderProviderInterface,
-    Feature\FilterProviderInterface,
-    Feature\ServiceProviderInterface
+    Feature\ConfigProviderInterface
 {
     /**
-     * getAutoloaderConfig(): defined by AutoloaderProviderInterface.
-     *
-     * @see    AutoloaderProviderInterface::getAutoloaderConfig()
-     * @return array
+     * {@inheritdoc}
      */
     public function getAutoloaderConfig()
     {
@@ -42,27 +35,8 @@ class Module implements
     /**
      * {@inheritdoc}
      */
-    public function getFilterConfig()
+    public function getConfig()
     {
-        return array(
-            'aliases' => array(
-                'slugify' => 'BaconStringUtils\Filter\Slugify',
-            ),
-            'factories' => array(
-                'BaconStringUtils\Filter\Slugify' => 'BaconStringUtils\Filter\SlugifyFactory',
-            )
-        );
-    }
-
-    public function getServiceConfig()
-    {
-        return array(
-            'invokables' => array(
-                'BaconStringUtils\UniDecoder' => 'BaconStringUtils\UniDecoder',
-            ),
-            'factories' => array(
-                'BaconStringUtils\Slugifier' => 'BaconStringUtils\SlugifierFactory',
-            ),
-        );
+        return require __DIR__ . '/../../config/module.config.php';
     }
 }

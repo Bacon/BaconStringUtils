@@ -13,16 +13,15 @@ namespace BaconStringUtils\Filter;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-/**
- * Slugify Factory
- */
 class SlugifyFactory implements FactoryInterface
 {
+    /**
+     * @return Slugify
+     */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $slugifier = $serviceLocator->getServiceLocator()->get('BaconStringUtils\Slugifier');
-
-        $slugify = new Slugify();
+        $slugify   = new Slugify();
         $slugify->setSlugifier($slugifier);
 
         return $slugify;

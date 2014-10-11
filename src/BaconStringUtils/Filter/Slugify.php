@@ -12,9 +12,6 @@ namespace BaconStringUtils\Filter;
 use BaconStringUtils\Slugifier;
 use Zend\Filter\FilterInterface;
 
-/**
- * Filter
- */
 class Slugify implements FilterInterface
 {
     /**
@@ -23,7 +20,7 @@ class Slugify implements FilterInterface
     protected $slugifier;
 
     /**
-     * {@inheritdocs}
+     * {@inheritdoc}
      */
     public function filter($value)
     {
